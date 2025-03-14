@@ -1,4 +1,4 @@
-package cunori.lsbd1.model;
+package cunori.lsbd.proyectos.model;
 
 import java.time.LocalDate;
 import java.util.List;
