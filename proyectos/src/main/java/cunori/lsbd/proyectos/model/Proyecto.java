@@ -1,12 +1,16 @@
-package cunori.lsbd.proyectos.model;
+package cunori.lsbd1.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Proyecto {
@@ -20,13 +24,14 @@ public class Proyecto {
 	@Column
 	private String descripcion;
 	
-	@Column
-	private Date fechaInicio;
+	@Column(name="fecha_inicio")
+	private LocalDate fechaInicio;
 	
-	@Column
-	private Date fechaFin;
+	@Column(name="fecha_fin")
+	private LocalDate fechaFin;
+	
 
-	public Proyecto(Integer id, String nombre, String descripcion, Date fechaInicio, Date fechaFin) {
+	public Proyecto(Integer id, String nombre, String descripcion, LocalDate fechaInicio, LocalDate fechaFin) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -64,21 +69,20 @@ public class Proyecto {
 		this.descripcion = descripcion;
 	}
 
-	public Date getFechaInicio() {
+	public LocalDate getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(Date fechaInicio) {
+	public void setFechaInicio(LocalDate fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public Date getFechaFin() {
+	public LocalDate getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(LocalDate fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-	
 	
 }
